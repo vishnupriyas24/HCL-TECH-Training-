@@ -1,0 +1,282 @@
+1. Selenium
+What is Selenium?
+Selenium is an open-source automation testing tool used to automate web browsers and test web applications.
+It helps testers perform actions automatically, such as:
+- Opening a website.
+- Entering username and password.
+- Clicking buttons.
+- Submitting forms.
+- Checking the results.
+Real-world example:
+Consider an online banking application.
+A tester needs to check whether users can log in successfully. Instead of manually entering the username and password every time, Selenium automates the login process.
+Types of Selenium
+There are three major Selenium components.
+1. Selenium IDE
+- IDE stands for Integrated Development Environment.
+- It is a record-and-playback tool.
+- It records user actions and plays them back.
+- It requires very little programming knowledge.
+Example: Record the process of logging into a website and replay the same steps.
+2. Selenium WebDriver
+- It is used to automate web browsers through programming languages.
+- Supports Python, Java, C# and other languages.
+- It directly controls browsers through browser drivers and browser automation protocols.
+Example: Write Python code to open Chrome, enter login details and click the Login button.
+3. Selenium Grid
+- Used to execute test cases across multiple machines and browsers.
+- Supports parallel test execution.
+- Saves testing time.
+Example: Test the same application in Chrome, Firefox and Edge simultaneously.
+
+Q1. What is Selenium?
+Selenium is an open-source automation testing tool used to automate web browsers and test web applications.
+Q2. What are the types of Selenium?
+The three major components are Selenium IDE, Selenium WebDriver and Selenium Grid.
+Q3. What is Selenium WebDriver?
+Selenium WebDriver is an automation tool that controls web browsers using programming languages like Python and Java.
+Q4. What is Selenium Grid?
+Selenium Grid allows us to execute test cases on multiple browsers and machines in parallel.
+Q5. Can Selenium test mobile applications?
+Selenium is mainly used for web application testing. Appium is commonly used for native mobile application testing.
+
+2. Locators in Selenium
+What are locators?
+Locators are used to identify web elements on a webpage.
+For example:
+- Username textbox.
+- Password textbox.
+- Login button.
+- Search box.
+- Submit button.
+Selenium uses locators to find and interact with these elements.
+Types of locators
+Selenium provides 8 traditional locator strategies.
+1	ID	Identifies using ID
+2	Name	Identifies using name
+3	Class Name	Identifies using class
+4	Tag Name	Identifies using HTML tag
+5	Link Text	Identifies using complete link text
+6	Partial Link Text	Identifies using partial link text
+7	CSS Selector	Identifies using CSS patterns
+8	XPath	Identifies using XPath expressions
+Example HTML
+<input id="password" name="pass">
+<button id="login">Login</button>
+1. ID locator
+Identifies an element using its ID.
+driver.find_element(By.ID, "username")
+2. Name locator
+Identifies an element using its name attribute.
+driver.find_element(By.NAME, "user")
+3. Class Name locator
+Identifies an element using its class attribute.
+driver.find_element(By.CLASS_NAME, "box")
+4. Tag Name locator
+Identifies an element using its HTML tag.
+driver.find_element(By.TAG_NAME, "input")
+5. Link Text locator
+Identifies a link using its complete text.
+HTML:
+<a href="/home">Home</a>
+Python:
+driver.find_element(By.LINK_TEXT, "Home")
+6. Partial Link Text locator
+Identifies a link using part of its text.
+driver.find_element(By.PARTIAL_LINK_TEXT, "Hom")
+7. CSS Selector
+Identifies elements using CSS patterns.
+Using ID:
+driver.find_element(By.CSS_SELECTOR, "#username")
+Using class:
+driver.find_element(By.CSS_SELECTOR, ".box")
+Using attribute:
+driver.find_element(    By.CSS_SELECTOR,    "input[name='user']")
+8. XPath
+XPath stands for XML Path Language.
+It is used to locate elements in the HTML DOM structure.
+Example:
+driver.find_element(By.XPATH,"//input[@id='username']")
+Types of XPath
+There are two main types.
+1. Absolute XPath
+- Starts from the root element.
+- Follows the complete HTML structure.
+- More sensitive to changes in page structure.
+Example:
+/html/body/div/form/input
+2. Relative XPath
+- Starts from anywhere in the DOM.
+- Uses //.
+- Generally more flexible.
+Example:
+//input[@id='username']
+
+Important XPath methods
+Method	Example
+contains()	//button[contains(@id,'log')]
+text()	//button[text()='Login']
+starts-with()	//input[starts-with(@id,'user')]
+and	//input[@type='text' and @name='user']
+or	//input[@id='user' or @name='user']
+
+Q1. What are locators?
+Locators are used to identify web elements on a webpage.
+Q2. How many traditional locator strategies are available in Selenium?
+Eight.
+Q3. Which locator is preferred?
+ID is generally preferred when it is unique and stable.
+Q4. Difference between XPath and CSS Selector?
+- XPath supports text-based selection and navigation in both directions through the DOM.
+- CSS Selector provides concise element selection using IDs, classes and attributes.
+Q5. Difference between absolute and relative XPath?
+Absolute XPath starts from the root of the HTML document, whereas relative XPath can start from anywhere in the DOM.
+Q6. What happens if an element is not found?
+Selenium generally raises NoSuchElementException.
+
+3. Log Files in Selenium
+What are log files?
+Log files are files that store information about application activities and test execution.
+They help testers identify errors, track execution and debug problems.
+Real-world example:
+Suppose you are testing an online shopping application.
+You click the Login button, but the application does not open the home page.
+You check the log file:
+10:00:01 - Browser opened
+10:00:05 - Username entered
+10:00:06 - Password entered
+10:00:07 - Login button clicked
+10:00:08 - ERROR: Element not found
+Types of log levels
+Python logging provides five commonly used severity levels.
+DEBUG	Detailed debugging information
+INFO	Normal execution information
+WARNING	Indicates a possible problem
+ERROR	Indicates an error
+CRITICAL	Indicates a serious problem
+
+Q1. Why do we use log files?
+We use log files to track test execution, identify errors and debug issues.
+Q2. What is the difference between print and logging?
+Print displays messages in the console, whereas logging can store messages in files with timestamps and severity levels.
+Q3. What is the purpose of the ERROR log?
+It records errors that occur during execution.
+Q4. Which Python module is used for logging?
+The logging module.
+
+4. Comments in Selenium Python
+What are comments?
+Comments are statements written inside the program to explain the code.
+Comments are not executed by Python.
+Types of comments
+1. Single-line comment
+We use # to write a single-line comment.
+Example:
+# Open Chrome browserdriver = webdriver.Chrome()
+2. Multi-line comments
+We can use multiple # symbols to write comments across multiple lines.
+Example:
+# Open the website# Enter username# Enter password# Click login button
+Python does not have a dedicated multi-line comment syntax.
+Triple-quoted strings can also be used as documentation strings (docstrings) in appropriate places, but they are not technically comments.
+
+Interview questions
+Q1. Why do we use comments?
+Comments help explain code and improve readability and maintenance.
+Q2. Are comments executed by Python?
+No. Comments are ignored by the Python interpreter.
+Q3. Which symbol is used for single-line comments?
+#
+
+5. Waits in Selenium
+What are waits?
+Waits are used to make Selenium wait until an element or a specific condition is ready before performing an action.
+Real-world example:
+Imagine you are booking a train ticket.
+1. Click Search.
+2. The application loads train details.
+3. It takes 5 seconds to display the results.
+4. Selenium tries to click the Select Seat button before it appears.
+The test may fail.
+To avoid this problem, we use waits.
+Types of waits
+There are three commonly discussed types:
+1. Implicit Wait
+2. Explicit Wait
+3. Fluent Wait
+1. Implicit Wait
+Implicit wait tells Selenium to wait for a specified maximum duration while searching for an element.
+Syntax:
+driver.implicitly_wait(10)
+Meaning:
+Selenium waits up to 10 seconds for an element to be found.
+2. Explicit Wait
+Explicit wait waits until a specific condition is satisfied before continuing execution.
+It is useful when elements take different amounts of time to load.
+Example: Wait until the Login button is clickable.
+3. Fluent Wait
+Fluent wait is a customized wait that allows us to specify the maximum waiting time, polling frequency and exceptions to ignore.
+
+Q1. What are waits in Selenium?
+Waits allow Selenium to wait for elements or conditions before performing actions.
+Q2. How many types of waits are commonly discussed?
+Three: Implicit, Explicit and Fluent Wait.
+Q3. Which wait is preferred?
+Explicit wait is generally preferred because it waits for a particular condition.
+Q4. What is polling frequency?
+Polling frequency is the time interval between consecutive checks of a condition.
+Q5. What is the maximum timeout?
+It is the maximum amount of time Selenium waits for the required condition.
+Q6. What is the difference between sleep and wait?
+- time.sleep() pauses execution for a fixed duration.
+- Selenium waits check a condition and can continue as soon as it is satisfied.
+
+6. Synchronization in Selenium
+What is synchronization?
+Synchronization means coordinating Selenium test execution with the loading speed and behavior of a web application.
+In simple words, Selenium should perform an action only when the application is ready.
+Real-world example
+Consider an online shopping application.
+1. User clicks Add to Cart.
+2. Application sends a request to the server.
+3. Server processes the request.
+4. Cart updates after 3 seconds.
+5. Selenium tries to click Checkout.
+If Selenium clicks before the cart is ready, the test may fail.
+
+Synchronization helps Selenium wait for the required condition before continuing.
+Why is synchronization required?
+- Web elements may load slowly.
+- Applications use dynamic content.
+- Server responses may take time.
+- Elements may become visible after some delay.
+- It prevents timing-related test failures.
+How do we achieve synchronization?
+1. Implicit Wait
+2. Explicit Wait
+3. Fluent Wait
+4. Condition-based checks
+
+Q1. What is synchronization in Selenium?
+Synchronization is the process of coordinating Selenium execution with the application's readiness.
+Q2. Why is synchronization important?
+It prevents Selenium from interacting with elements before they are ready.
+Q3. How do you achieve synchronization?
+We can achieve synchronization using implicit wait, explicit wait and Fluent Wait.
+Q4. What happens without synchronization?
+Selenium may fail with exceptions such as:
+- NoSuchElementException
+- ElementNotInteractableException
+- ElementClickInterceptedException
+- TimeoutException
+Q5. Which wait is best for synchronization?
+Explicit wait is generally preferred because it checks a specific condition before performing an action.
+
+7. Important Selenium Exceptions
+NoSuchElementException	Element not found
+TimeoutException	Condition not satisfied within the timeout
+ElementNotInteractableException	Element cannot be interacted with
+ElementClickInterceptedException	Another element blocks the click
+StaleElementReferenceException	Previously located element is no longer attached to the current DOM
+NoSuchWindowException	Requested browser window does not exist
+NoAlertPresentException	Alert is not available
